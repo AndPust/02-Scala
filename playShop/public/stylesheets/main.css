@@ -1,0 +1,23 @@
+body {
+    font-family: arial;
+}
+
+article {
+    display: block;
+}
+
+aside {
+    display: block;
+}
+
+.Product {
+    background-color: #ccffcc;
+}
+/* 
+.Fish {
+    background-color: #ccffff;
+}
+
+.Fruit {
+    background-color: #ffcccc;
+} */
