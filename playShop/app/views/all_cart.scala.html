@@ -1,0 +1,19 @@
+@()
+
+@main("This is your Cart") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Cart">
+            @for(item <- CartList.get_all()){
+                <li>@ProductList.get_by_id(item._1).name, number of items: @item._2, from categories: @CategoryList.get_names_by_id(item._1).mkString(" ")</li>
+            }
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}

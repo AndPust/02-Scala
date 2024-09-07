@@ -1,0 +1,19 @@
+@()
+
+@main("Display all Products") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Product">
+            @for(product <- ProductList.get_all()){
+                <li>id:@product.id, @product.name, @product.colour</li>
+            }
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}

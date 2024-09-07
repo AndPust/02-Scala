@@ -1,0 +1,96 @@
+@()
+
+@main("Scala Play CRUD site") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section id="content">
+  <div class="wrapper doc">
+    <article>
+      <p>This site has two controllers: ProductController and CartController.<br>
+      For GET and POST requests you can use the HTML forms below.<br>
+      For PUT and DELETE requests you will have to use curl or software like Postman.<br>
+      The data in the requests has to be url-encoded.</p>
+      <div class="Product">
+        <h2>ProductController:</h2>
+        <h1>Get Product by id</h1>
+        <form action="/product" method="GET">
+          Id<br><input type="text" name="id" value="1"><br>
+          <input type="submit" value="Submit">
+        </form>
+        <h1>Make a POST request handled by ProductController</h1>
+        <form action="/product" method="POST">
+          Name<br><input type="text" name="name" value="Bike"><br>
+          Colour<br><input type="text" name="colour" value="Green"><br>
+          <input type="submit" value="Submit">
+        </form>
+        <h1>Delete a Product</h1>
+        In order to delete a Product execute the following curl command
+        with appropriate id and check the ProductList:<br>
+        <code>curl -X DELETE http://localhost:9000/product?id=1</code>
+        <h1>Update a Product</h1>
+        In order to update a Product execute the following curl command
+        with appropriate id, name and colour. Then check the ProductList:<br>
+        <code>curl -X PUT --data-urlencode "id=1" --data-urlencode "name=Car" --data-urlencode "colour=Red" http://localhost:9000/product</code>
+      </div>
+      <div class="Category">
+        <h2>CategoryControler:</h2>
+        <h1>Get Category by name</h1>
+        <form action="/category" method="GET">
+          Name<br><input type="text" name="name" value="Furniture"><br>
+          <input type="submit" value="Submit">
+        </form>
+        <h1>Make a POST request handled by CategoryController</h1>
+        <form action="/category" method="POST">
+          Name<br><input type="text" name="name" value="Furniture"><br>
+          <input type="submit" value="Submit">
+        </form>
+        </form>
+        <h1>Add product id through a POST request handled by CategoryController</h1>
+        We have an additional endpoint for adding a given priduct id to a given category<br>
+        <form action="/category_add_id" method="POST">
+          Product id<br><input type="text" name="id" value="3"><br>
+          Category name<br><input type="text" name="name" value="Furniture"><br>
+          
+          <input type="submit" value="Submit">
+        </form>
+        You should also be able to use it through the following curl command:<br>
+        <code>curl -X POST --data-urlencode "name=Furniture" --data-urlencode "id=3" http://localhost:9000/category_add_id</code>
+        <h1>Delete a Category</h1>
+        In order to delete a Category execute the following curl command
+        with appropriate name and check the CategoryList:<br>
+        <code>curl -X DELETE http://localhost:9000/category?name=Furniture</code>
+        <h1>Delete a product from Categories</h1>
+        In order to delete a Category execute the following curl command
+        with appropriate id anc category name and check the CategoryList (if you don't provide the category name then the id will be removed from all categories):<br>
+        <code>curl -X DELETE --data-urlencode "name=Furniture" --data-urlencode "id=1" http://localhost:9000/category</code>
+        <h1>Update a Category</h1>
+        In order to update a Category execute the following curl command
+        with appropriate name and new_name. Then check the CategoryList:<br>
+        <code>curl -X PUT --data-urlencode "name=Furniture" --data-urlencode "new_name=Chairs" http://localhost:9000/category</code>
+      </div>
+      <div class="Cart">
+        <h2>CartController:</h2>
+        <h1>Add Product to Cart by id</h1>
+        <form action="/cart" method="POST">
+          Id<br><input type="text" name="id" value="1"><br>
+          <input type="submit" value="Submit">
+        </form>
+        <h1>Delete a product with a DELETE request handled by FruitController</h1>
+        <form action="/cart" method="DELETE">
+          Id<br><input type="text" name="id" value="1"><br>
+          <input type="submit" value="Submit">
+        </form>
+        <br>
+        You can also use curl commands to add and delete a product from the cart:<br>
+        <code>curl -X POST --data-urlencode "id=1" http://localhost:9000/cart</code><br>
+        <code>curl -X DELETE --data-urlencode "id=1" http://localhost:9000/cart</code><br>
+        To see the cart please follow the <code>/cart</code> <a href="@routes.CartController.get_all()">endpoint</a>
+      </div>
+    </article>
+    <aside>
+      @footer()
+    </aside>
+  </div>
+</section>
+}
+}

@@ -1,0 +1,10 @@
+@()
+@defining(play.core.PlayVersion.current) { version =>
+<p>Site Navigation</p>
+<ul>
+  <li><a href="@routes.ProductController.index()">Index</a></li>
+  <li><a href="@routes.ProductController.get_all()">Show All Products</a></li>
+  <li><a href="@routes.CategoryController.get_all()">Show All Categories</a></li>
+  <li><a href="@routes.CartController.get_all()">Show All Products in the Cart</a></li>
+</ul>
+}

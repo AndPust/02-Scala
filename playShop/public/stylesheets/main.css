@@ -11,13 +11,17 @@ aside {
 }
 
 .Product {
-    background-color: #ccffcc;
-}
-/* 
-.Fish {
-    background-color: #ccffff;
+    background-color: #ccccff;
 }
 
-.Fruit {
-    background-color: #ffcccc;
-} */
+.Category {
+    background-color: #ccffcc;
+}
+
+.Cart {
+    background-color: #f3ba65;
+}
+
+.Error {
+    background-color: #da5f5f;
+}

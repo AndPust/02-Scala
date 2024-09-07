@@ -1,0 +1,17 @@
+@(name : String)
+
+@main("Category not found") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Error">
+            Could not fetch category with the name: @name. Such Category does not exists
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}

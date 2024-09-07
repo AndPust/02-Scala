@@ -1,0 +1,19 @@
+@()
+
+@main("Display all Categories") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Category">
+            @for(category <- CategoryList.get_all()){
+                <li>Name:@category.name, ids of products with this category: @category.printList()</li>
+            }
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}

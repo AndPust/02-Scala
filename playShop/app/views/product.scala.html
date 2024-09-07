@@ -1,0 +1,17 @@
+@(product : Product)
+
+@main("Display Product by Id") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Product">
+            @product.name, @product.colour,  id:@product.id
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}

@@ -1,0 +1,17 @@
+@(id : Int)
+
+@main("Product not found") {
+@defining(play.core.PlayVersion.current) { version =>
+
+<section>
+    <div>
+        <article class="Error">
+            Could not fetch product with the Id: @id. Such Product does not exists
+        </article>
+        <aside>
+            @footer()
+        </aside>
+    </div>
+</section>
+}
+}
