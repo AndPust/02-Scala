@@ -9,22 +9,30 @@ GET     /products                           controllers.ProductController.get_al
 GET     /product                            controllers.ProductController.get_by_id(id : Int)
 + nocsrf
 POST    /product                            controllers.ProductController.post()
++ nocsrf
 DELETE  /product                            controllers.ProductController.delete(id: Int)
++ nocsrf
 PUT     /product                            controllers.ProductController.update()
 
 # Category Controller
 GET     /categories                         controllers.CategoryController.get_all()
 GET     /category                           controllers.CategoryController.get_by_name(name: String)
++ nocsrf
 POST    /category                           controllers.CategoryController.post()
++ nocsrf
 POST    /category_add_id                    controllers.CategoryController.add_id()
++ nocsrf
 PUT     /category                           controllers.CategoryController.update()
++ nocsrf
 DELETE  /category                           controllers.CategoryController.delete()
 
 # Cart COntroller
 GET     /cart                               controllers.CartController.get_all()
 + nocsrf
 POST    /cart                               controllers.CartController.post()
++ nocsrf
 DELETE  /cart                               controllers.CartController.delete()
++ nocsrf
 DELETE  /cart_del                           controllers.CartController.delete_all()
 
 # Map static resources from the /public folder to the /assets URL path

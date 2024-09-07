@@ -63,6 +63,10 @@ object CategoryList {
   }
 
   def add_id(id: Int, name: String): String ={
+    if (ProductList.get_by_id(id) == null) {
+      return "Id " + id.toString() + " doesn't point to any product!"
+    }
+
     for(c <- categories){
       if(name.equals(c.name)){
         if (c.ids.contains(id)) {

@@ -76,13 +76,8 @@
           <input type="submit" value="Submit">
         </form>
         <h1>Delete a product with a DELETE request handled by FruitController</h1>
-        <form action="/cart" method="DELETE">
-          Id<br><input type="text" name="id" value="1"><br>
-          <input type="submit" value="Submit">
-        </form>
         <br>
-        You can also use curl commands to add and delete a product from the cart:<br>
-        <code>curl -X POST --data-urlencode "id=1" http://localhost:9000/cart</code><br>
+        Please use thr curl command to delete a product from the cart:<br>
         <code>curl -X DELETE --data-urlencode "id=1" http://localhost:9000/cart</code><br>
         To see the cart please follow the <code>/cart</code> <a href="@routes.CartController.get_all()">endpoint</a>
       </div>
